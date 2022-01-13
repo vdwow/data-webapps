@@ -73,14 +73,10 @@ def main():
         col4.write(data.groupby('Country').sum()['Amount in €'].sort_values(ascending = True).head(5))
 
 
-#df_top_types = df.groupby('Type').agg({'ID':'count','Amount':'sum'}).sort_values(by = 'ID',
-                                                                                ascending = False)
+#df_top_types = df.groupby('Type').agg({'ID':'count','Amount':'sum'}).sort_values(by = 'ID', ascending = False)
 #df_top_types.columns = ['Total_volume','Total_amount_euros']
-
 #df_top_types.head(3)
-
 #df_top_types
-
 
     return None
 
