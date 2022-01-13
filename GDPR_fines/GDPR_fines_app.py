@@ -11,7 +11,7 @@ DATA = ('https://raw.githubusercontent.com/vdwow/data-scraping/master/data_expor
 
 def load_data(nrows):
     data = pd.read_csv(DATA, nrows=nrows)
-    data = data.drop(['Unnamed: 0', 'Source'], axis = 1)
+    data = data.drop(['Col', 'Source'], axis = 1)
     data.columns = ['ID', 'Country', 'Date', 'Amount in €', 'Fined Company', 'GDPR Articles violated',' Type of infraction']
     
     data['ID'] = data['ID'].str.replace('ETid-', '')
