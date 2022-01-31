@@ -31,7 +31,7 @@ if url_video != '':
     video = yt.streams
 
     zip_file = ZipFile('video.zip', 'w')
-    zip_file.write(video.get_lowest_resolution().download())
+    zip_file.write(video.get_highest_resolution().download())
     #zip_file.write('yt.srt')
     zip_file.close()
 
