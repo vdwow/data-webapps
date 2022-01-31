@@ -30,35 +30,6 @@ if url_video != '':
 
     video = yt.streams
 
-    # btn = st.download_button(
-    #         label="Download VIDEO",
-    #         data=video.get_lowest_resolution(),
-    #         file_name="video"
-    #         #mime="application/zip"
-    #     )
-
-    # if len(video) > 0:
-
-    #     downloaded , download_audio = False , False
-    #     download_video = st.button("Download Video")
-
-    #     if yt.streams.filter(only_audio=True):
-    #         download_audio = st.button("Download Audio Only")
-
-    #     if download_video:
-    #         video.get_lowest_resolution().download()
-    #         downloaded = True
-
-    #     if download_audio:
-    #         video.filter(only_audio=True).first().download()
-    #         downloaded = True
-
-    #     if downloaded:
-    #         st.subheader("Download Complete")
-
-    # else:
-    #     st.subheader("Sorry, this video can not be downloaded")
-
     zip_file = ZipFile('video.zip', 'w')
     zip_file.write(video.get_lowest_resolution().download())
     #zip_file.write('yt.srt')
@@ -68,6 +39,5 @@ if url_video != '':
         btn = st.download_button(
             label="Download VIDEO",
             data=zip_download,
-            file_name="video.zip",
-            mime="application/zip"
+            file_name="downloaded_video"
         )
