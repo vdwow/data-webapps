@@ -4,8 +4,6 @@ import numpy as np
 from datetime import date
 from pytube import YouTube
 
-/home/appuser/venv/bin/python -m pip install --upgrade pip
-
 st.set_page_config(page_title = "Youtbe Downloader", page_icon = "random")   #layout="wide")
 
 st.title('Youtube Downloader')
@@ -36,7 +34,7 @@ if url != '':
         if yt.streams.filter(only_audio=True):
             download_audio = st.button("Download Audio Only")
         if download_video:
-            video.get_lowest_resolution().download()
+            video.get_lowest_resolution().download('C:\Users\Public\Videos')
             downloaded = True
         if download_audio:
             video.filter(only_audio=True).first().download()
