@@ -39,5 +39,5 @@ if url_video != '':
         btn = st.download_button(
             label="Download VIDEO",
             data=zip_download,
-            file_name="downloaded_video"
+            file_name="downloaded_video.zip"
         )
