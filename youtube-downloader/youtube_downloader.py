@@ -4,14 +4,16 @@ import numpy as np
 from datetime import date
 from pytube import YouTube
 
-st.set_page_config(layout="wide")
+/home/appuser/venv/bin/python -m pip install --upgrade pip
+
+st.set_page_config(page_title = "Youtbe Downloader", page_icon = "random")   #layout="wide")
 
 st.title('Youtube Downloader')
 
 st.subheader("Enter the URL:")
-url = st.text_input(label='URL')
+url_video = st.text_input(label='URL')
 
-yt = YouTube(url)
+yt = YouTube(url_video)
 
 print(yt.streams)
 
