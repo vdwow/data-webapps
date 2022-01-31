@@ -15,8 +15,9 @@ yt = YouTube(url_video)
 
 print(yt.streams)
 
-if url != '':
-    yt = YouTube(url)
+if url_video != '':
+    yt = YouTube(url_video)
+    
     st.image(yt.thumbnail_url, width=300)
     
     st.subheader("Title : " + yt.title)
@@ -34,7 +35,7 @@ if url != '':
         if yt.streams.filter(only_audio=True):
             download_audio = st.button("Download Audio Only")
         if download_video:
-            video.get_lowest_resolution().download('C:\Users\Public\Videos')
+            video.get_lowest_resolution().download(r"C:/Users/Public/Videos")
             downloaded = True
         if download_audio:
             video.filter(only_audio=True).first().download()
