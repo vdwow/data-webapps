@@ -1,0 +1,5 @@
+streamlit
+diffusers
+transformers
+scipy
+huggingface-hub

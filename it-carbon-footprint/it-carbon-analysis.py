@@ -2,10 +2,12 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from datetime import date
-from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
+# from fuzzywuzzy import fuzz
+# from fuzzywuzzy import process
 
 st.set_page_config(layout="wide")
+
+## data loading & prep
 
 data_ref = 'https://raw.githubusercontent.com/Boavizta/environmental-footprint-data/main/boavizta-data-fr.csv'
 ref_df = pd.read_csv(data_ref, sep = ';', error_bad_lines=False)
@@ -19,6 +21,8 @@ ref_df['lifetime'] = ref_df['lifetime'].str.replace(',', '').astype('int')/10
 
 ref_df['yearly_tec'] = ref_df['yearly_tec'].fillna(value = '0')
 ref_df['yearly_tec'] = ref_df['yearly_tec'].str.replace(',', '').astype('int')/10
+
+##
 
 st.title('💻 Carbon IT footprint calculator 🍃')
 
@@ -50,6 +54,7 @@ df = df.merge(ref_df, left_on = 'model', right_on='name')
 st.text(df.head())
 
 ###
+
 df['gwp_mult'] = df['volume'] * df['gwp_total']
 gwp_total = int(df['gwp_mult'].sum() / 1000)
 
@@ -76,7 +81,10 @@ with col2:
 with col3:
       st.metric(label="Scope 3 Total (teq)", value= scope3_total)
 
+###
 
+
+### FUZZY MATCHING
 
 # for model in df.head()['model']:
     
@@ -93,3 +101,13 @@ with col3:
     # st.text(model)
     # st.text(max(l))
     # st.text(l)
+    
+# def main():
+       
+#    if app_mode == "Home":
+#           ###
+#    elif app_mode == "Top Fives":
+#          ###
+#    return None
+   
+# main()
