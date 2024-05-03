@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-df_input = pd.read_csv('data/opendata-po-2022-fr.csv')
+df_input = pd.read_csv('https://github.com/vdwow/data-webapps/blob/main/plastic-data/data/opendata-po-2022-fr.csv')
 
 df_filtered = df_input.copy()
 
